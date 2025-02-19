@@ -6,27 +6,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const signupForm = document.getElementById('signupForm');
     const tabBtns = document.querySelectorAll('.tab-btn');
 
-    // Backend URL
+    // Backend and Frontend URLs
     const backendUrl = "https://escape-room-backend.vercel.app/api/auth";
+    const frontendUrl = "https://escape-room-frontend-iota.vercel.app/";
 
-    // Landing page to auth page transition
+    // 🔹 Transition from Landing Page to Auth Page
     enterButton.addEventListener('click', () => {
         landingPage.style.opacity = '0';
         setTimeout(() => {
             landingPage.classList.add('hidden');
             authPage.classList.remove('hidden');
-            setTimeout(() => {
-                authPage.style.opacity = '1';
-            }, 50);
+            setTimeout(() => { authPage.style.opacity = '1'; }, 50);
         }, 500);
     });
 
-    // Add fade transition styles
+    // 🔹 Fade effect for pages
     landingPage.style.transition = 'opacity 0.5s ease';
     authPage.style.transition = 'opacity 0.5s ease';
     authPage.style.opacity = '0';
 
-    // Tab switching
+    // 🔹 Tab Switching (Login / Signup)
     tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             tabBtns.forEach(b => b.classList.remove('active'));
@@ -42,11 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Handle Login
+    // 🔹 Handle Login
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const email = loginForm.querySelector('input[type="email"]').value;
-        const password = loginForm.querySelector('input[type="password"]').value;
+        const email = e.target.querySelector('input[type="email"]').value;
+        const password = e.target.querySelector('input[type="password"]').value;
 
         try {
             const res = await fetch(`${backendUrl}/login`, {
@@ -58,10 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await res.json();
 
             if (res.ok) {
-                // Store token and redirect to game
                 localStorage.setItem("token", data.token);
-                alert("Login successful!");
-                window.location.href = "https://escape-room-frontend-iota.vercel.app/";
+                alert("Login successful! Redirecting...");
+                window.location.href = frontendUrl; // ✅ Redirect to Game Frontend
             } else {
                 alert(data.error);
             }
@@ -71,13 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Handle Signup
+    // 🔹 Handle Signup
     signupForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const username = signupForm.querySelector('input[type="text"]').value;
-        const email = signupForm.querySelector('input[type="email"]').value;
-        const password = signupForm.querySelector('input[type="password"]').value;
-        const confirmPassword = signupForm.querySelectorAll('input[type="password"]')[1].value;
+        const username = e.target.querySelector('input[type="text"]').value;
+        const email = e.target.querySelector('input[type="email"]').value;
+        const password = e.target.querySelector('input[type="password"]').value;
+        const confirmPassword = e.target.querySelectorAll('input[type="password"]')[1].value;
 
         if (password !== confirmPassword) {
             alert('Passwords do not match!');
@@ -94,7 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await res.json();
 
             if (res.ok) {
-                alert("Signup successful! Please log in.");
+                alert("Signup successful! Redirecting to game...");
+                window.location.href = frontendUrl; // ✅ Redirect to Game Frontend after Signup
             } else {
                 alert(data.error);
             }
