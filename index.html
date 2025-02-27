@@ -11,16 +11,9 @@
     <div id="landingPage" class="landing-container">
         <div class="overlay"></div>
         <div class="landing-content">
-            <svg class="skull-icon-large" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M8 20v2h8v-2"/><path d="m12.5 17-.5-1-.5 1h1z"/><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20"/>
-            </svg>
             <h1 class="game-title">THE ESCAPE ROOM</h1>
-            <div class="title-separator"></div>
-            <p class="game-description">Trapped in an abandoned psychiatric ward, your sanity hangs by a thread. Navigate through 10 terrifying rooms, each with its own dark secrets. With only 5 minutes per room, can you maintain your grip on reality long enough to escape?</p>
-            <button id="enterButton" class="enter-button">
-                Enter If You Dare
-                <span class="button-hover"></span>
-            </button>
+            <p class="game-description">Trapped in an abandoned psychiatric ward, your sanity hangs by a thread. Can you escape?</p>
+            <button id="enterButton" class="enter-button">Enter If You Dare</button>
         </div>
     </div>
 
@@ -29,12 +22,8 @@
         <div class="overlay"></div>
         <div class="login-container">
             <div class="header">
-                <svg class="skull-icon" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M8 20v2h8v-2"/><path d="m12.5 17-.5-1-.5 1h1z"/><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20"/>
-                </svg>
                 <h1>THE ESCAPE ROOM</h1>
                 <p class="tagline">Escape the abandoned psychiatric ward... if you dare</p>
-                <p class="details">5 minutes per room. 10 rooms. Can you escape them all?</p>
             </div>
 
             <div class="tabs">
@@ -42,47 +31,29 @@
                 <button class="tab-btn" data-tab="signup">Sign Up</button>
             </div>
 
-            <form id="loginForm" class="form">
+            <form id="loginForm" class="form" method="POST" action="/login">
                 <div class="input-group">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                    </svg>
-                    <input type="email" placeholder="Email" required>
+                    <input type="email" id="login-email" name="email" placeholder="Email" required>
                 </div>
                 <div class="input-group">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                    </svg>
-                    <input type="password" placeholder="Password" required>
+                    <input type="password" id="login-password" name="password" placeholder="Password" required>
                 </div>
                 <button type="submit" class="submit-btn">Enter The Room</button>
-                <a href="#" class="forgot-password">Lost in the darkness?</a>
+                <a href="#" class="forgot-password">Forgot password?</a>
             </form>
 
-            <form id="signupForm" class="form hidden">
+            <form id="signupForm" class="form hidden" method="POST" action="/signup">
                 <div class="input-group">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
-                    </svg>
-                    <input type="text" placeholder="Username" required>
+                    <input type="text" id="signup-username" name="username" placeholder="Username" required>
                 </div>
                 <div class="input-group">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                    </svg>
-                    <input type="email" placeholder="Email" required>
+                    <input type="email" id="signup-email" name="email" placeholder="Email" required>
                 </div>
                 <div class="input-group">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                    </svg>
-                    <input type="password" placeholder="Password" required>
+                    <input type="password" id="signup-password" name="password" placeholder="Password" required>
                 </div>
                 <div class="input-group">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
-                    </svg>
-                    <input type="password" placeholder="Confirm Password" required>
+                    <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm Password" required>
                 </div>
                 <button type="submit" class="submit-btn">Begin Your Journey</button>
             </form>

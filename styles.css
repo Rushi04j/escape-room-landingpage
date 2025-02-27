@@ -282,3 +282,17 @@ input:focus {
 .login-container {
     animation: pulse 2s infinite;
 }
+/* Add this to your existing CSS */
+
+/* Disabled button styles */
+.submit-btn.disabled {
+    background-color: #6b7280 !important; /* Grayed out */
+    cursor: not-allowed !important;
+    opacity: 0.7;
+}
+
+/* Ensure buttons can move freely */
+.submit-btn {
+    position: relative; /* Default position */
+    transition: all 0.3s ease; /* Smooth movement */
+}
